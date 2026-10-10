@@ -1,0 +1,20 @@
+# CI stub: build + validate the HIP kernels on a self-hosted AMD (ROCm) runner.
+# Register a self-hosted runner with the 'rocm' label on an MI300 box to enable this.
+name: rocm-ci
+on: [push, pull_request]
+jobs:
+  build-and-validate:
+    runs-on: [self-hosted, rocm]      # <-- your MI300 runner
+    steps:
+      - uses: actions/checkout@v4
+      - name: Environment
+        run: hipcc --version && rocminfo | grep -m1 -o 'gfx[0-9a-f]*'
+      - name: Build + hipify + run
+        run: |
+          ARCH=$(rocminfo | grep -o 'gfx[0-9a-f]*' | head -1)
+          hipify-perl cuda/saxpy.cu   > saxpy.hip
+          hipify-perl cuda/softmax.cu > softmax.hip
+          hipcc saxpy.hip   -o saxpy   --offload-arch=$ARCH && ./saxpy
+          hipcc softmax.hip -o softmax --offload-arch=$ARCH && ./softmax
+      - name: Golden-reference validation
+        run: python3 validate.py

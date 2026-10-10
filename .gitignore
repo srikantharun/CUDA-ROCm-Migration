@@ -1,0 +1,12 @@
+work/
+*.bin
+*.o
+*.out
+vadd
+saxpy
+softmax
+sgemm
+*.hip
+__pycache__/
+.ipynb_checkpoints/
+extension-cpp/

@@ -1,0 +1,67 @@
+{
+  "device": "AMD Instinct MI300X VF",
+  "torch": "2.14.0+rocm10.1.0",
+  "hip": "7.16.26385",
+  "model": "yolov8n",
+  "imgsz": 640,
+  "precision": "fp16",
+  "method": "forward-pass only (pre/post excluded)",
+  "rows": [
+    {
+      "batch": 1,
+      "images": 1024,
+      "seconds": 5.295,
+      "fps": 193.4,
+      "ms_per_img": 5.171
+    },
+    {
+      "batch": 2,
+      "images": 1024,
+      "seconds": 2.729,
+      "fps": 375.2,
+      "ms_per_img": 2.665
+    },
+    {
+      "batch": 4,
+      "images": 1024,
+      "seconds": 1.361,
+      "fps": 752.7,
+      "ms_per_img": 1.329
+    },
+    {
+      "batch": 8,
+      "images": 1024,
+      "seconds": 0.682,
+      "fps": 1500.7,
+      "ms_per_img": 0.666
+    },
+    {
+      "batch": 16,
+      "images": 1024,
+      "seconds": 0.336,
+      "fps": 3043.8,
+      "ms_per_img": 0.329
+    },
+    {
+      "batch": 32,
+      "images": 1024,
+      "seconds": 0.194,
+      "fps": 5271.7,
+      "ms_per_img": 0.19
+    },
+    {
+      "batch": 64,
+      "images": 1024,
+      "seconds": 0.169,
+      "fps": 6049.7,
+      "ms_per_img": 0.165
+    },
+    {
+      "batch": 128,
+      "images": 1280,
+      "seconds": 0.198,
+      "fps": 6463.6,
+      "ms_per_img": 0.155
+    }
+  ]
+}

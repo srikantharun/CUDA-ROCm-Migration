@@ -1,0 +1,9 @@
+{
+  "epochs": 3,
+  "dataset": "coco128 (128 images, 80 classes)",
+  "batch": 64,
+  "imgsz": 640,
+  "train_seconds": 69.0,
+  "mAP50": 0.6035,
+  "mAP50_95": 0.4426
+}
